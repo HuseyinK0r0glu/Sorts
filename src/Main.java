@@ -5,7 +5,8 @@ public class Main {
     public static void main(String[] args) {
 
         int[] array = createArray();
-        insertionSort(array);
+        bubbleSort(array);
+        //insertionSort(array);
         //selectionSort(array);
         writeArray(array);
     }
@@ -22,7 +23,6 @@ public class Main {
         }
         return array;
     }
-
 
     public static void selectionSort(int[] array){
         for(int i = 0;i<array.length;i++){
@@ -42,6 +42,23 @@ public class Main {
                 if(less(array,j,j-1)){
                     exchange(array,j,j-1);
                 }
+            }
+        }
+    }
+
+    public static void bubbleSort(int[] array){
+        for(int i = 0;i<array.length-1;i++){
+            boolean swapped = false;
+            for(int j = 0;j<array.length-i-1;j++){
+
+                if(less(array,j+1,j)){
+                    exchange(array,j,j+1);
+                    swapped = true;
+                }
+
+            }
+            if(!swapped){
+                break;
             }
         }
     }
