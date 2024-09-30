@@ -13,6 +13,9 @@ public class Main {
         //insertionSort(array);
         //selectionSort(array);
         writeArray(array);
+
+        //System.out.println(binarySearch(array,234));
+
     }
 
     public static void writeArray(int[] array){
@@ -103,6 +106,10 @@ public class Main {
         }
     }
 
+    public static void quickSort(int[] array,int left,int right){
+        //?????????????
+    }
+
     public static boolean less(int[] array,int i ,int j){
         if(array[i] < array[j]){
             return true;
@@ -115,4 +122,28 @@ public class Main {
         array[i] = array[j];
         array[j] = temp;
     }
+
+    // Search
+    // Binary Search
+
+    public static int binarySearch(int[] array,int value){
+
+        int low = 0;
+        int high = array.length - 1;
+        int mid;
+
+        while(low <= high){
+            mid = (low + high) / 2;
+            if(array[mid] > value){
+                high = mid-1;
+            }else if(array[mid] < value){
+                low = mid+1;
+            }else{
+                return mid;
+            }
+        }
+
+        return -1; // if there is error
+    }
+
 }
