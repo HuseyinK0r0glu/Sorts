@@ -1,18 +1,27 @@
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Timer;
 
 public class Main {
     public static void main(String[] args) {
 
         int[] array = createArray();
-
-        int[] helper = new int[array.length];
+        long startTime = System.nanoTime();
 
         quickSort(array,0,array.length-1);
+
+        //int[] helper = new int[array.length];
         //mergeSort(array,helper,0,array.length-1);
+
         //bubbleSort(array);
         //insertionSort(array);
         //selectionSort(array);
+
+        long endTime = System.nanoTime();
+        long sortTime = endTime - startTime;
+
+        System.out.println("It took " + sortTime + " nanoseconds to sort an array");
+
         writeArray(array);
 
         //System.out.println(binarySearch(array,234));
@@ -89,7 +98,7 @@ public class Main {
         int helperRight = middle+1;
         int current = low;
 
-        while(helperLeft <= middle && helperRight <=high){
+        while(helperLeft <= middle && helperRight <= high){
             if(helper[helperLeft] <= helper[helperRight]){
                 array[current] =  helper[helperLeft];
                 helperLeft++;
