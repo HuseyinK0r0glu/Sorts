@@ -58,7 +58,10 @@ public class Main {
             for(int j = i;j>0;j--){
                 if(less(array,j,j-1)){
                     exchange(array,j,j-1);
+                }else {
+                    break;
                 }
+
             }
         }
     }
