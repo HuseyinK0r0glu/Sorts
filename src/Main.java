@@ -8,7 +8,7 @@ public class Main {
         int[] array = createArray();
         long startTime = System.nanoTime();
 
-        quickSort(array,0,array.length-1);
+        //quickSort(array,0,array.length-1);
 
         //int[] helper = new int[array.length];
         //mergeSort(array,helper,0,array.length-1);
@@ -17,15 +17,19 @@ public class Main {
         //insertionSort(array);
         //selectionSort(array);
 
-        long endTime = System.nanoTime();
-        long sortTime = endTime - startTime;
+        //long endTime = System.nanoTime();
+        //long sortTime = endTime - startTime;
 
-        System.out.println("It took " + sortTime + " nanoseconds to sort an array");
+        //System.out.println("It took " + sortTime + " nanoseconds to sort an array");
 
-        writeArray(array);
+        //writeArray(array);
 
         //System.out.println(binarySearch(array,234));
 
+
+        int[] arr = {1,10,10,10,2,6,2,2,7,6,4,2,5,6,8,9,8,8,10,2,1,2,3,3,3,4};
+        countingSort(arr,1,10);
+        writeArray(arr);
     }
 
     public static void writeArray(int[] array){
@@ -39,6 +43,23 @@ public class Main {
             array[i] = random.nextInt(10000);
         }
         return array;
+    }
+
+    public static void countingSort(int[] array,int min,int max){
+
+        int[] countingArray = new int[max-min+1];
+
+        for(int i = 0;i<array.length;i++){
+            countingArray[array[i] - min]++;
+        }
+
+        int index = 0;
+        for(int i = min;i<=max;i++){
+            while(countingArray[i-min] > 0){
+                array[index++] = i;
+                countingArray[i-min]--;
+            }
+        }
     }
 
     public static void selectionSort(int[] array){
